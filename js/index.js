@@ -1,24 +1,31 @@
-class Event {
-    constructor(title, keywords) {
-        this.title = title;
-        this.keywords = keywords;
-    }
+
+
+function Sandwich(bread, ingredients, cut) {
+    this.bread = bread 
+    this.ingredients = ingredients 
+    this.cut = cut 
 }
- 
-class User {
-    constructor(name, interests) {
-        this.name = name;
-        this.interests = interests;
+
+const blt = new Sandwich(
+    'White',
+    ['bacon', 'lettuce', 'tomat', 'mayo'],
+    'rectangle'
+)
+
+const reuben = new Sandwich(
+    'rye',
+    ['beef', 'kraut', 'swiss', 'dressing'],
+    'diagonal'
+)
+
+const pbj = {
+    name: 'PB&J',
+    bread: 'White',
+    ingredients: ['Peanut Butter', 'Jelly'],
+    cut: 'Triangles',
+    serve: function() {
+        console.log(`Here's your ${this.name}. Enjoy!`);
     }
- 
-    matchInterests(event) {
-        return event.keywords.some(word => 
-             this.interests.includes(word)
-        )
-    }
-}
- 
-let billy = new User('billy', ['music', 'art', 'movies']);
-let freeMusic = new Event('Free Music Show', ['music', 'free', 'outside']);
- 
-console.log(billy.matchInterests(freeMusic))
+};
+
+pbj.serve()
